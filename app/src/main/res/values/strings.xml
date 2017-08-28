@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">My Android Application</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="content_text">Content</string>
+    <string name="details_text">Details</string>
+    <string name="add_btn">Add</string>
+    <string name="action_settings">Settings</string>
+    <string name="textview">TextView</string>
 </resources>
