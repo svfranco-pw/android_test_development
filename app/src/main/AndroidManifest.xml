@@ -32,6 +32,8 @@
             android:name=".ItemInfoActivity"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:label="@string/add_item">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

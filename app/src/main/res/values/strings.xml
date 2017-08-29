@@ -7,4 +7,7 @@
     <string name="add_btn">Add</string>
     <string name="action_settings">Settings</string>
     <string name="textview">TextView</string>
+    <string name="save_btn">Save</string>
+    <string name="add_item">Add Item</string>
+    <string name="edit_item">Edit Item</string>
 </resources>
