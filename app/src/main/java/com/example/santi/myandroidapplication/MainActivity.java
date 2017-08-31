@@ -23,26 +23,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        /*// storing string resources into Array
-        String[] teams = getResources().getStringArray(R.array.teams);
-
-        // Binding resources Array to ListAdapter
-        this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, R.id.textview, teams));
-
-        ListView lv = getListView();*/
-
-        //listView = (ListView) findViewById(R.id.textview);
-
-        // Find the ListView resource.
         mainListView = (ListView) findViewById( R.id.mainListView );
 
-        // Create and populate a List of planet names.
-        String[] planets = new String[] { "Mercury", "Venus", "Earth" };
+        // Create a list of food.
+        String[] planets = new String[] { "Burger", "Pizza", "Pasta" };
         ArrayList<String> planetList = new ArrayList<String>();
         planetList.addAll( Arrays.asList(planets) );
 
-        // Create ArrayAdapter using the planet list.
+        // Create ArrayAdapter using the food list.
         listAdapter = new ArrayAdapter<String>(this, R.layout.list_item, planetList);
 
         // Set the ArrayAdapter as the ListView's adapter.
@@ -52,22 +40,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Selected item
-                String team = ((TextView) view).getText().toString();
+                String content = ((TextView) view).getText().toString();
 
                 Intent intent = new Intent(getApplicationContext(), ItemInfoActivity.class);
-                intent.putExtra("team", team);
+
+                if(content.equals("Pizza")) {
+                    intent.putExtra("detail", "Pepperoni");
+                } else if (content.equals("Burger")) {
+                    intent.putExtra("detail", "Cheeseburger");
+                } else if (content.equals("Pasta")) {
+                    intent.putExtra("detail", "Carbonara");
+                }
+                intent.putExtra("content", content);
                 startActivity(intent);
             }
         });
     }
 
-    /** Called when the user taps the Send button */
-    public void addItem(View view) {
+    /** Called when the user taps the Add menu*/
+    private void addItem(View view) {
         Intent intent;
         intent = new Intent(this, LinkingActivity.class);
-        //EditText editText = (EditText) findViewById(R.id.editText);
-        //String message = editText.getText().toString();
-        //intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
 
@@ -83,9 +76,6 @@ public class MainActivity extends AppCompatActivity {
         switch(item.getItemId()) {
             case R.id.add:
                 intent = new Intent(this, LinkingActivity.class);
-                //EditText editText = (EditText) findViewById(R.id.editText);
-                //String message = editText.getText().toString();
-                //intent.putExtra(EXTRA_MESSAGE, message);
                 startActivity(intent);
                 return(true);
             case R.id.edit:

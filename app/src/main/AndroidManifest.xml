@@ -23,7 +23,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".LinkingActivity" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".LinkingActivity"
+            android:parentActivityName=".MainActivity">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".MainActivity" />
@@ -31,9 +33,17 @@
         <activity
             android:name=".ItemInfoActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:label="@string/add_item">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".EditItemInfoActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:label="@string/edit_item">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
