@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     //public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private ListView mainListView;
     private ArrayAdapter<String> listAdapter ;
+    // Create a list of food.
+    private String[] planets = new String[] { "Burger", "Pizza", "Pasta" };
+    private ArrayList<String> planetList = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         mainListView = (ListView) findViewById( R.id.mainListView );
 
-        // Create a list of food.
-        String[] planets = new String[] { "Burger", "Pizza", "Pasta" };
-        ArrayList<String> planetList = new ArrayList<String>();
         planetList.addAll( Arrays.asList(planets) );
 
         // Create ArrayAdapter using the food list.
@@ -80,7 +80,13 @@ public class MainActivity extends AppCompatActivity {
                 return(true);
             case R.id.edit:
                 intent = new Intent(this, DisplayMessageActivity.class);
-                startActivity(intent);
+                //listAdapter.clear();
+                // Create ArrayAdapter using the food list.
+                listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, planetList);
+
+                // Set the ArrayAdapter as the ListView's adapter.
+                mainListView.setAdapter( listAdapter );
+                //startActivity(intent);
                 return(true);
             case R.id.delete:
                 //Toast.makeText(this, R.string.about_toast, Toast.LENGTH_LONG).show();
